@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import sklearn
 import xgboost as xgb
 
 # Define mappings
