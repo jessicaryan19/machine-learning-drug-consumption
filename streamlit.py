@@ -1,6 +1,6 @@
 import streamlit as st
-import numpy as np  # For numerical operations
-from tensorflow.keras.models import load_model
+import numpy as np
+import xgboost as xgb
 
 # Define mappings
 age_mapping = {
@@ -102,7 +102,8 @@ ss = st.number_input('SS', min_value=0, max_value=100, value=0, step=1)
 if st.button('Predict'):
     try:
         # Load the model
-        model = load_model('model.h5')
+        model = xgb.XGBRegressor()
+        model.load_model('test.xgb')
 
         # Encode categorical inputs using mappings
         age_encoded = age_mapping[age]
