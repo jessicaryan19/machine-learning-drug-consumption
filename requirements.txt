@@ -2,3 +2,7 @@ streamlit
 numpy
 tensorflow
 xgboost
+pandas
+seaborn
+matplotlib
+sklearn
