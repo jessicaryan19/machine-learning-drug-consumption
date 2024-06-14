@@ -47,19 +47,26 @@ ss = st.number_input('SS', min_value=0, max_value=100, value=0, step=1)
 
 # Button
 
+# Prediction button
 if st.button('Predict'):
-    # load the model from h5
-    model = load_model('model.h5')
+    try:
+        # Load the model
+        model = load_model('model.h5')
 
-# Output
+        # Make prediction
+        prediction = model.predict([[age, nscore, escore, oscore, ascore, cscore, impulsive, ss]])
+        
+        # Output prediction
+        st.write(f'The predicted drug consumption is: {prediction}')
+        
+        # (Optional) If your model outputs probabilities
+        if hasattr(model, 'predict_proba'):
+            probability = model.predict_proba([[age, nscore, escore, oscore, ascore, cscore, impulsive, ss]])
+            st.write(f'The probability of the predicted drug consumption is: {probability}')
 
-prediction = model.predict([[age, nscore, escore, oscore, ascore, cscore, impulsive, ss]])
+        # Show model summary
+        st.write('Here is the model summary:')
+        model.summary(print_fn=lambda x: st.text(x))
 
-probability = model.predict_proba([[age, nscore, escore, oscore, ascore, cscore, impulsive, ss]])
-
-st.write(f'The predicted drug consumption is: {prediction}')
-st.write(f'The probability of the predicted drug consumption is: {probability}')
-
-st.write('Here is the model summary:')
-
-model.summary()
+    except Exception as e:
+        st.error(f'Error making prediction: {e}')
