@@ -123,17 +123,13 @@ if st.button('Predict'):
         y_test_pred = model.predict(input_data)[0]
         y_test_pred = np.round(y_test_pred).astype(int)
 
-        print(f"The predicted drug consumption is: {drug_col[y_test_pred]}")
-        
+        st.write(f"The predicted drug consumption is: {drug_col[y_test_pred]}")
+
         # (Optional) If your model outputs probabilities
 
         if hasattr(model, 'predict_proba'):
             probability = model.predict_proba(input_data)
             st.write(f'The probability of the predicted drug consumption is: {probability}')
-
-        # Show model summary
-        st.write('Here is the model summary:')
-        model.summary(print_fn=lambda x: st.text(x))
 
     except Exception as e:
         st.error(f'Error making prediction: {e}')
