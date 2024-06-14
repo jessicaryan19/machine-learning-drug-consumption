@@ -103,7 +103,7 @@ if st.button('Predict'):
     try:
         # Load the model
         model = xgb.XGBRegressor()
-        model.load_model('test.xgb')
+        model.load_model('model.xgb')
 
         # Encode categorical inputs using mappings
         age_encoded = age_mapping[age]
