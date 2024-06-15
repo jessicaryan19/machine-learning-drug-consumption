@@ -73,12 +73,12 @@ ethnicity_options = list(ethnicity_mapping.keys())
 ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
 st.subheader('Psychological')
-nscore = st.number_input('Neuroticism Score', min_value=12, max_value=60, value=0, step=1)
-escore = st.number_input('Extraversion Score', min_value=12, max_value=60, value=0, step=1)
-oscore = st.number_input('Openness Score', min_value=12, max_value=60, value=0, step=1)
-ascore = st.number_input('Agreeableness Score', min_value=12, max_value=60, value=0, step=1)
-cscore = st.number_input('Conscientiousness Score', min_value=12, max_value=60, value=0, step=1)
-impulsive = st.number_input('Impulsive', min_value=0, max_value=60, value=0, step=1)
+nscore = st.number_input('Nscore', min_value=0, max_value=100, value=0, step=1)
+escore = st.number_input('Escore', min_value=0, max_value=100, value=0, step=1)
+oscore = st.number_input('Oscore', min_value=0, max_value=100, value=0, step=1)
+ascore = st.number_input('Ascore', min_value=0, max_value=100, value=0, step=1)
+cscore = st.number_input('Cscore', min_value=0, max_value=100, value=0, step=1)
+impulsive = st.number_input('Impulsive', min_value=0, max_value=100, value=0, step=1)
 ss = st.number_input('SS', min_value=0, max_value=100, value=0, step=1)
 
 if st.button('Predict'):
