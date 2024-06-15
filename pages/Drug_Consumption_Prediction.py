@@ -53,9 +53,9 @@ ethnicity_mapping = {
 # Title
 st.set_page_config(
     page_title="Drug Consumption Prediction",
-    page_icon="📈"
+    page_icon="🔮"
 )
-st.title('Drug Consumption Prediction')
+st.title('Drug Consumption Prediction 🔮')
 
 # Age options
 age_options = list(age_mapping.keys())
