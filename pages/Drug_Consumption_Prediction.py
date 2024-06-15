@@ -57,8 +57,6 @@ st.set_page_config(
 )
 st.title('Drug Consumption Prediction')
 
-
-
 age_options = list(age_mapping.keys())
 # Age
 age = st.selectbox('Age', age_options)
