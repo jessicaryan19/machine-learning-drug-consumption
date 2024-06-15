@@ -1,7 +1,7 @@
-import streamlit as st
+import Home as st
 
 st.set_page_config(
-    page_title="Hello",
+    page_title="Home",
     page_icon="👋",
 )
 
