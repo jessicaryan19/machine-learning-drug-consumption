@@ -22,7 +22,7 @@ def extract_data_from_ipynb(ipynb_path):
     
     return data
 
-ipynb_path = '../classification.ipynb'
+ipynb_path = 'classification.ipynb'
 
 # Extract data from the .ipynb file
 data = extract_data_from_ipynb(ipynb_path)
