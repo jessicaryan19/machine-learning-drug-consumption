@@ -1,6 +1,10 @@
 import streamlit as st
+st.set_page_config(
+    page_title="Model Graph",
+    page_icon="📊"
+)
+st.title('📊 Model Graph')
 
-st.title('Model Graph')
 st.subheader('Evaluation Matrix')
 st.image('output.png')
 
