@@ -56,35 +56,41 @@ st.set_page_config(
     page_icon="📈"
 )
 st.title('Drug Consumption Prediction')
-st.subheader('Demographic')
 
+st.subheader('Demographic')
 col1, col2 = st.columns(2)
 
 with col1:
     age_options = list(age_mapping.keys())
     age = st.selectbox('Age', age_options)
 
-with col2:
-    gender_options = list(gender_mapping.keys())
-    gender = st.selectbox('Gender', gender_options)
+    ethnicity_options = list(ethnicity_mapping.keys())
+    ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
     education_options = list(education_mapping.keys())
     education = st.selectbox('Education Level', education_options)
 
+with col2:
+    gender_options = list(gender_mapping.keys())
+    gender = st.selectbox('Gender', gender_options)
+
     country_options = list(country_mapping.keys())
     country = st.selectbox('Country', country_options)
 
-ethnicity_options = list(ethnicity_mapping.keys())
-ethnicity = st.selectbox('Ethnicity', ethnicity_options)
-
 st.subheader('Psychological')
-nscore = st.number_input('Neuroticism', min_value=12, max_value=60, value=12, step=1)
-escore = st.number_input('Extraversion', min_value=12, max_value=60, value=12, step=1)
-oscore = st.number_input('Openness', min_value=12, max_value=60, value=12, step=1)
-ascore = st.number_input('Agreeableness', min_value=12, max_value=60, value=12, step=1)
-cscore = st.number_input('Conscientiousness', min_value=12, max_value=60, value=12, step=1)
-impulsive = st.number_input('Impulsive', min_value=12, max_value=60, value=12, step=1)
-ss = st.number_input('SS', min_value=12, max_value=60, value=12, step=1)
+
+col3, col4 = st.columns(2)
+
+with col3:
+    nscore = st.number_input('Neuroticism', min_value=12, max_value=60, value=12, step=1)
+    oscore = st.number_input('Openness', min_value=12, max_value=60, value=12, step=1)
+    cscore = st.number_input('Conscientiousness', min_value=12, max_value=60, value=12, step=1)
+    ss = st.number_input('SS', min_value=12, max_value=60, value=12, step=1)
+
+with col4:
+    escore = st.number_input('Extraversion', min_value=12, max_value=60, value=12, step=1)
+    ascore = st.number_input('Agreeableness', min_value=12, max_value=60, value=12, step=1)
+    impulsive = st.number_input('Impulsive', min_value=12, max_value=60, value=12, step=1)
 
 if st.button('Predict'):
     try:
