@@ -1,17 +1,10 @@
 import streamlit as st
-import pandas as pd
-import os
 
 st.set_page_config(
     page_title="Model Graph",
     page_icon="📊"
 )
 st.title('📊 Model Graph')
-st.write("Current working directory:", os.getcwd())
-# df = pd.DataFrame()
-# st.dataframe(df)
-
-
 st.subheader('Evaluation Matrix')
 st.image('output.png')
 
