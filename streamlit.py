@@ -5,7 +5,7 @@ st.set_page_config(
     page_icon="👋",
 )
 
-st.write("# Welcome to Streamlit! 👋")
+st.write("Drug Consumption Prediction")
 st.markdown(
     """
     Streamlit is an open-source app framework built specifically for
