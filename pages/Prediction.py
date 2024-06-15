@@ -57,3 +57,6 @@ st.title('Drug Consumption Prediction')
 
 age_options = list(age_mapping.keys())
 age = st.selectbox('Age', age_options)
+
+gender_options = list(gender_mapping.keys())
+gender = st.selectbox('Gender', gender_options)
