@@ -56,7 +56,7 @@ st.set_page_config(
     page_icon="📈"
 )
 st.title('Drug Consumption Prediction')
-
+st.subheader('Demographic')
 age_options = list(age_mapping.keys())
 age = st.selectbox('Age', age_options)
 
@@ -72,6 +72,7 @@ country = st.selectbox('Country', country_options)
 ethnicity_options = list(ethnicity_mapping.keys())
 ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
+st.subheader('Psychological')
 nscore = st.number_input('Nscore', min_value=0, max_value=100, value=0, step=1)
 escore = st.number_input('Escore', min_value=0, max_value=100, value=0, step=1)
 oscore = st.number_input('Oscore', min_value=0, max_value=100, value=0, step=1)
