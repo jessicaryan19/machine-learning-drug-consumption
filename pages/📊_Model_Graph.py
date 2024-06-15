@@ -1,13 +1,9 @@
 import streamlit as st
-import pandas as pd
-
 st.set_page_config(
     page_title="Model Graph",
     page_icon="📊"
 )
 st.title('📊 Model Graph')
-df = pd.read_csv('../dataset/drug_consumption.csv')
-st.dataframe(df)
 
 st.subheader('Evaluation Matrix')
 st.image('output.png')
