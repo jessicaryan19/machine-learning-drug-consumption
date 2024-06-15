@@ -12,17 +12,17 @@ def extract_data_from_ipynb(ipynb_path):
     
     # Execute the cells to get the data
     data = None
+    local_vars = {}
     for cell in nb.cells:
         if cell.cell_type == 'code':
-            exec(cell.source)
-            if 'data' in locals():
-                data = locals()['data']
+            exec(cell.source, globals(), local_vars)
+            if 'data' in local_vars:
+                data = local_vars['data']
                 break
     
     return data
 
-# Path to your .ipynb file
-ipynb_path = 'classification.ipynb'
+ipynb_path = '../classification.ipynb'
 
 # Extract data from the .ipynb file
 data = extract_data_from_ipynb(ipynb_path)
