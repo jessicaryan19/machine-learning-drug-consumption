@@ -55,7 +55,6 @@ st.set_page_config(
     page_title="Drug Consumption Prediction",
     page_icon="📈"
 )
-st.sidebar.header("Drug Consumption Prediction")
 st.title('Drug Consumption Prediction')
 
 # Age options
