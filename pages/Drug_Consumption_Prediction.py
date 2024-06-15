@@ -57,14 +57,11 @@ st.set_page_config(
 )
 st.title('Drug Consumption Prediction')
 
-col1, col2 = st.columns((1,1))
-with col1:
-    age_options = list(age_mapping.keys())
-    age = st.selectbox('Age', age_options)
+age_options = list(age_mapping.keys())
+age = st.selectbox('Age', age_options)
 
-with col2:
-    gender_options = list(gender_mapping.keys())
-    gender = st.selectbox('Gender', gender_options)
+gender_options = list(gender_mapping.keys())
+gender = st.selectbox('Gender', gender_options)
 
 education_options = list(education_mapping.keys())
 education = st.selectbox('Education Level', education_options)
