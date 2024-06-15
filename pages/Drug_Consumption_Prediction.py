@@ -1,4 +1,4 @@
-import streamlit as st
+import Home as st
 import numpy as np
 import sklearn
 import xgboost as xgb
@@ -23,7 +23,7 @@ education_mapping = {
     'Left School at 16 years': -1.73790,
     'Left School at 17 years': -1.43719,
     'Left School at 18 years': -1.22751,
-    'Some College, No Certificate Or Degree': -0.61113,
+    'Some College,No Certificate Or Degree': -0.61113,
     'Professional Certificate/Diploma': -0.05921,
     'University Degree': 0.45468,
     'Masters Degree': 1.16365,
@@ -53,10 +53,10 @@ ethnicity_mapping = {
 # Title
 st.set_page_config(
     page_title="Drug Consumption Prediction",
-    page_icon="📈"
+    page_icon="🔮"
 )
-st.title('Drug Consumption Prediction')
-st.subheader("Demographics")
+st.title('Drug Consumption Prediction 🔮')
+
 # Age options
 age_options = list(age_mapping.keys())
 # Age
@@ -82,7 +82,6 @@ ethnicity_options = list(ethnicity_mapping.keys())
 # Ethnicity
 ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
-st.subheader("Psychological Score")
 # Nscore
 nscore = st.number_input('Nscore', min_value=0, max_value=100, value=0, step=1)
 
