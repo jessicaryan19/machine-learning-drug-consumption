@@ -69,19 +69,10 @@ with col1:
     education = st.selectbox('Education Level', education_options)
 
 with col2:
-# Education options
-
-# Education
-
-
-# Country options
     country_options = list(country_mapping.keys())
-# Country
     country = st.selectbox('Country', country_options)
 
-# Ethnicity options
     ethnicity_options = list(ethnicity_mapping.keys())
-# Ethnicity
     ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
 # Nscore
