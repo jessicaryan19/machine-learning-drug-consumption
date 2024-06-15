@@ -23,7 +23,7 @@ education_mapping = {
     'Left School at 16 years': -1.73790,
     'Left School at 17 years': -1.43719,
     'Left School at 18 years': -1.22751,
-    'Some College,No Certificate Or Degree': -0.61113,
+    'Some College, No Certificate Or Degree': -0.61113,
     'Professional Certificate/Diploma': -0.05921,
     'University Degree': 0.45468,
     'Masters Degree': 1.16365,
@@ -57,30 +57,32 @@ st.set_page_config(
 )
 st.title('Drug Consumption Prediction')
 
-# Age options
-age_options = list(age_mapping.keys())
-# Age
-age = st.selectbox('Age', age_options)
+col1, col2 = st.beta_column((1, 1))
+with col1:
+    age_options = list(age_mapping.keys())
+    age = st.selectbox('Age', age_options)
 
-# Gender options
-gender_options = list(gender_mapping.keys())
-# Gender
-gender = st.selectbox('Gender', gender_options)
+    gender_options = list(gender_mapping.keys())
+    gender = st.selectbox('Gender', gender_options)
 
+    education_options = list(education_mapping.keys())
+    education = st.selectbox('Education Level', education_options)
+
+with col2:
 # Education options
-education_options = list(education_mapping.keys())
+
 # Education
-education = st.selectbox('Education Level', education_options)
+
 
 # Country options
-country_options = list(country_mapping.keys())
+    country_options = list(country_mapping.keys())
 # Country
-country = st.selectbox('Country', country_options)
+    country = st.selectbox('Country', country_options)
 
 # Ethnicity options
-ethnicity_options = list(ethnicity_mapping.keys())
+    ethnicity_options = list(ethnicity_mapping.keys())
 # Ethnicity
-ethnicity = st.selectbox('Ethnicity', ethnicity_options)
+    ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
 # Nscore
 nscore = st.number_input('Nscore', min_value=0, max_value=100, value=0, step=1)
