@@ -56,28 +56,33 @@ st.set_page_config(
     page_icon="📈"
 )
 st.title('Drug Consumption Prediction')
+st.subheader("Demographics")
+# Age options
 age_options = list(age_mapping.keys())
+# Age
+age = st.selectbox('Age', age_options)
+
+# Gender options
 gender_options = list(gender_mapping.keys())
+# Gender
+gender = st.selectbox('Gender', gender_options)
+
+# Education options
 education_options = list(education_mapping.keys())
+# Education
+education = st.selectbox('Education Level', education_options)
 
-col1, col2 = st.columns((1, 1))
-with col1:
-    
-    age = st.selectbox('Age', age_options)
+# Country options
+country_options = list(country_mapping.keys())
+# Country
+country = st.selectbox('Country', country_options)
 
-    
-    gender = st.selectbox('Gender', gender_options)
+# Ethnicity options
+ethnicity_options = list(ethnicity_mapping.keys())
+# Ethnicity
+ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
-    
-    education = st.selectbox('Education Level', education_options)
-
-with col2:
-    country_options = list(country_mapping.keys())
-    country = st.selectbox('Country', country_options)
-
-    ethnicity_options = list(ethnicity_mapping.keys())
-    ethnicity = st.selectbox('Ethnicity', ethnicity_options)
-
+st.subheader("Psychological Score")
 # Nscore
 nscore = st.number_input('Nscore', min_value=0, max_value=100, value=0, step=1)
 
