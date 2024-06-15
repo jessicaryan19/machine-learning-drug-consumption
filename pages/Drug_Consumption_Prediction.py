@@ -56,7 +56,7 @@ st.set_page_config(
     page_icon="📈"
 )
 st.title('Drug Consumption Prediction')
-
+st.subheader('Demographic')
 age_options = list(age_mapping.keys())
 age = st.selectbox('Age', age_options)
 
@@ -72,12 +72,13 @@ country = st.selectbox('Country', country_options)
 ethnicity_options = list(ethnicity_mapping.keys())
 ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
-nscore = st.number_input('Nscore', min_value=0, max_value=100, value=0, step=1)
-escore = st.number_input('Escore', min_value=0, max_value=100, value=0, step=1)
-oscore = st.number_input('Oscore', min_value=0, max_value=100, value=0, step=1)
-ascore = st.number_input('Ascore', min_value=0, max_value=100, value=0, step=1)
-cscore = st.number_input('Cscore', min_value=0, max_value=100, value=0, step=1)
-impulsive = st.number_input('Impulsive', min_value=0, max_value=100, value=0, step=1)
+st.subheader('Psychological')
+nscore = st.number_input('Nscore', min_value=12, max_value=100, value=0, step=1)
+escore = st.number_input('Escore', min_value=12, max_value=100, value=0, step=1)
+oscore = st.number_input('Oscore', min_value=12, max_value=100, value=0, step=1)
+ascore = st.number_input('Ascore', min_value=12, max_value=100, value=0, step=1)
+cscore = st.number_input('Cscore', min_value=12, max_value=100, value=0, step=1)
+impulsive = st.number_input('Impulsive', min_value=12, max_value=100, value=0, step=1)
 ss = st.number_input('SS', min_value=0, max_value=100, value=0, step=1)
 
 if st.button('Predict'):
@@ -93,9 +94,7 @@ if st.button('Predict'):
 
         input_data = np.array([[age_encoded, gender_encoded, education_encoded, country_encoded, ethnicity_encoded,
                                 nscore, escore, oscore, ascore, cscore, impulsive, ss]])
-
         drug_col = ['Alcohol', 'Amphet', 'Amyl', 'Benzos', 'Caff', 'Cannabis', 'Choc', 'Coke', 'Crack', 'Ecstasy', 'Heroin', 'Ketamine', 'Legalh', 'LSD', 'Meth', 'Mushrooms', 'Nicotine', 'Semer', 'VSA']
-
         y_test_pred = model.predict(input_data)[0]
         y_test_pred = np.round(y_test_pred).astype(int)
 
