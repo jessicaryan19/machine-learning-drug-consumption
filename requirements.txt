@@ -6,3 +6,4 @@ xgboost
 pandas
 seaborn
 matplotlib
+nbformat
