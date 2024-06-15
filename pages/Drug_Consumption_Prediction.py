@@ -58,78 +58,48 @@ st.set_page_config(
 st.title('Drug Consumption Prediction')
 
 age_options = list(age_mapping.keys())
-# Age
 age = st.selectbox('Age', age_options)
 
-# Gender options
 gender_options = list(gender_mapping.keys())
-# Gender
 gender = st.selectbox('Gender', gender_options)
 
-# Education options
 education_options = list(education_mapping.keys())
-# Education
 education = st.selectbox('Education Level', education_options)
 
-# Country options
 country_options = list(country_mapping.keys())
-# Country
 country = st.selectbox('Country', country_options)
 
-# Ethnicity options
 ethnicity_options = list(ethnicity_mapping.keys())
-# Ethnicity
 ethnicity = st.selectbox('Ethnicity', ethnicity_options)
 
-# Nscore
 nscore = st.number_input('Nscore', min_value=0, max_value=100, value=0, step=1)
-
-# Escore
 escore = st.number_input('Escore', min_value=0, max_value=100, value=0, step=1)
-
-# Oscore
 oscore = st.number_input('Oscore', min_value=0, max_value=100, value=0, step=1)
-
-# Ascore
 ascore = st.number_input('Ascore', min_value=0, max_value=100, value=0, step=1)
-
-# Cscore
 cscore = st.number_input('Cscore', min_value=0, max_value=100, value=0, step=1)
-
-# Impulsive
 impulsive = st.number_input('Impulsive', min_value=0, max_value=100, value=0, step=1)
-
-# SS
 ss = st.number_input('SS', min_value=0, max_value=100, value=0, step=1)
 
-# Prediction button
 if st.button('Predict'):
     try:
-        # Load the model
         model = xgb.XGBRegressor()
         model.load_model('model.xgb')
 
-        # Encode categorical inputs using mappings
         age_encoded = age_mapping[age]
         gender_encoded = gender_mapping[gender]
         education_encoded = education_mapping[education]
         country_encoded = country_mapping[country]
         ethnicity_encoded = ethnicity_mapping[ethnicity]
 
-        # Prepare input data for prediction (both categorical and numerical features)
         input_data = np.array([[age_encoded, gender_encoded, education_encoded, country_encoded, ethnicity_encoded,
                                 nscore, escore, oscore, ascore, cscore, impulsive, ss]])
 
-        # Make prediction
         drug_col = ['Alcohol', 'Amphet', 'Amyl', 'Benzos', 'Caff', 'Cannabis', 'Choc', 'Coke', 'Crack', 'Ecstasy', 'Heroin', 'Ketamine', 'Legalh', 'LSD', 'Meth', 'Mushrooms', 'Nicotine', 'Semer', 'VSA']
 
         y_test_pred = model.predict(input_data)[0]
         y_test_pred = np.round(y_test_pred).astype(int)
 
         st.write(f"The predicted drug consumption is: {drug_col[y_test_pred]}")
-
-        # (Optional) If your model outputs probabilities
-
         if hasattr(model, 'predict_proba'):
             probability = model.predict_proba(input_data)
             st.write(f'The probability of the predicted drug consumption is: {probability}')
