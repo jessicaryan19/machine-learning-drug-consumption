@@ -68,11 +68,11 @@ with col2:
     gender_options = list(gender_mapping.keys())
     gender = st.selectbox('Gender', gender_options)
 
-education_options = list(education_mapping.keys())
-education = st.selectbox('Education Level', education_options)
+    education_options = list(education_mapping.keys())
+    education = st.selectbox('Education Level', education_options)
 
-country_options = list(country_mapping.keys())
-country = st.selectbox('Country', country_options)
+    country_options = list(country_mapping.keys())
+    country = st.selectbox('Country', country_options)
 
 ethnicity_options = list(ethnicity_mapping.keys())
 ethnicity = st.selectbox('Ethnicity', ethnicity_options)
