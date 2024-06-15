@@ -55,7 +55,7 @@ st.set_page_config(
     page_title="Drug Consumption Prediction",
     page_icon="📈"
 )
-st.title('Drug Consumption Prediction')
+st.title('📈 Drug Consumption Prediction')
 
 st.subheader('Demographic')
 col1, col2 = st.columns(2)
