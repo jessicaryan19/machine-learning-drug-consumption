@@ -57,8 +57,19 @@ st.set_page_config(
 )
 st.title('Drug Consumption Prediction')
 
-age_options = list(age_mapping.keys())
-age = st.selectbox('Age', age_options)
+# Debugging information
+st.write("Debug Info: Checking age_mapping contents...")
+st.write(age_mapping)
+
+try:
+    age_options = list(age_mapping.keys())
+    st.write("Debug Info: age_options successfully created")
+    age = st.selectbox('Age', age_options)
+except AttributeError as e:
+    st.error(f"AttributeError encountered: {e}")
+    with open("error_log.txt", "a") as log_file:
+        log_file.write(f"AttributeError: {e}\n")
+    st.stop()
 
 # Gender options
 gender_options = list(gender_mapping.keys())
@@ -135,3 +146,5 @@ if st.button('Predict'):
 
     except Exception as e:
         st.error(f'Error making prediction: {e}')
+        with open("error_log.txt", "a") as log_file:
+            log_file.write(f"Prediction Error: {e}\n")
